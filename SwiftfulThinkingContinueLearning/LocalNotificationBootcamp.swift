@@ -90,7 +90,8 @@ struct LocalNotificationBootcamp: View {
             }
         }
         .onAppear {
-            UIApplication.shared.applicationIconBadgeNumber = 0
+//            UIApplication.shared.applicationIconBadgeNumber = 0
+            UNUserNotificationCenter.current().setBadgeCount(0)
         }
     }
 }
