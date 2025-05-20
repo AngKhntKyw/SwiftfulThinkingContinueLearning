@@ -113,6 +113,8 @@ struct ArraysBootcamp: View {
                     //                        .cornerRadius(10)
                     //                        .padding(.horizontal)
                     //                    }
+                    
+                    
                     ForEach(vm.mappedArray, id: \.self) { name in
                         Text(name)
                             .font(.headline)
