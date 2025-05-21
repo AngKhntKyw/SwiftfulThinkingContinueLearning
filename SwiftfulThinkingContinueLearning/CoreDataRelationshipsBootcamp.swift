@@ -129,11 +129,11 @@ class CoreDataRelationshipsViewModel: ObservableObject {
     
     func addDepartment() {
         let newDepartment = DepartmentEntity(context: manager.context)
-        newDepartment.name = "Finance"
+        newDepartment.name = "Sdaf"
         newDepartment.businesses = [businesses[0], businesses[1], businesses[2]]
-        //        newDepartment.employees = [employees[1]]
+        newDepartment.employees = [employees[0], employees[1]]
         // another way
-        newDepartment.addToEmployees(employees[0])
+        //        newDepartment.addToEmployees(employees[0])
         save()
     }
     
@@ -144,6 +144,12 @@ class CoreDataRelationshipsViewModel: ObservableObject {
         newEmployee.age = 28
         newEmployee.business = businesses[6]
         newEmployee.department = departments[0]
+        save()
+    }
+    
+    func deleteBusiness() {
+        let business = businesses[1]
+        manager.context.delete(business)
         save()
     }
     
@@ -230,7 +236,8 @@ struct BusinessView: View {
                 .fontWeight(.bold)
             
             if let departments = entity.departments?.allObjects as? [DepartmentEntity] {
-                Text("Departments :")
+                
+                Text("Departments : ")
                     .fontWeight(.bold)
                 
                 ForEach(departments) { department in
