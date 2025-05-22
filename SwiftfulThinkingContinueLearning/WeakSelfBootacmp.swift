@@ -68,7 +68,6 @@ class WeakSelfSecondScreenViewModel: ObservableObject {
     }
     
     func getData() {
-        
         DispatchQueue.main.asyncAfter(deadline: .now() + 5) { [ weak self] in
             self?.data = "New Data"
         }
